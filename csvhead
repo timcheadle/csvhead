@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'CSV'
+
+delimiter = ARGV[0].nil? ? ',' : ARGV[0]
+
+csv = CSV($stdin, headers: false, converters: :all, col_sep: delimiter)
+
+headers = csv.shift
+data = csv.shift
+
+header_len = headers.max_by(&:length).length
+
+headers.each_with_index do |column, i|
+  printf("%5d %-#{header_len}s   (%s)\n", i + 1, headers[i], data[i])
+end
