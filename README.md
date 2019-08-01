@@ -74,7 +74,7 @@ $ cat test.csv | csvhead
     9 Grade       (D-)
 ```
 
-#### Now, only print Lastname and Grade
+#### Now, only print last name and grade
 
 ```
 $ cat test.csv | csvfix order -f 1,9
